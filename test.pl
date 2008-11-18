@@ -6,7 +6,7 @@
 # change 'tests => 1' to 'tests => last_test_to_print';
 
 use Test;
-BEGIN { plan tests => 2 };
+BEGIN { plan tests => 5 };
 use Cisco::ShowIPRoute::Parser;
 ok(1); # If we made it this far, we're ok.
 
@@ -45,6 +45,19 @@ my $log = './testlogs/TCNZA-AU-SYD-R1.log';
 my $router = new Cisco::ShowIPRoute::Parser($log);
 my @rts =  $router->getroutes($ip);
 if(@rts == 1 && $rts[0] eq 'is directly connected, FastEthernet0/0' )
+{
+	ok(1);
+}
+else
+{
+	ok(0);
+}
+
+# Should be directly connected
+my $log = './testlogs/RN-48GE-01-7609-01.log';
+my $router = new Cisco::ShowIPRoute::Parser($log);
+my @rts =  $router->getroutes('192.168.88.5');
+if(@rts == 2 && $rts[0] eq '10.25.160.252' )
 {
 	ok(1);
 }

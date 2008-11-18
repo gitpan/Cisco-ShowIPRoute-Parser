@@ -18,3 +18,4 @@ plotfile.png                      -- PNG from plot-route.pl
 plotfile.ps                       -- PostScript from plot-route.pl
 ExecCmds.pm                       -- Butchered version
 getshowiproutes.pl                -- Pick up 'show ip route' logs
+META.yml                                 Module meta-data (added by MakeMaker)
